@@ -67,8 +67,13 @@ suite('Functional Tests', function () {
 });
 
 const Browser = require('zombie');
+Browser.site = 'https://petrylabs-mocha-chai.herokuapp.com/'; // http://localhost:3000/
 
 suite('Functional Tests with Zombie.js', function () {
+  const browser = new Browser();
+  suiteSetup(function(done) {
+    return browser.visit('/', done);
+  });
   this.timeout(5000);
 
 
